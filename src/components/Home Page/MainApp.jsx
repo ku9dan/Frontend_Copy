@@ -116,7 +116,9 @@ function MainApp() {
         }}
       >
         <Suspense fallback={<div>Loading Register...</div>}>
-          <Register closeRegisterModal={closeRegisterModal} />
+          <Register 
+          closeRegisterModal={closeRegisterModal}
+          openLoginModal={openLoginModal} />
         </Suspense>
       </Modal>
 

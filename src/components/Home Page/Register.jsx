@@ -361,7 +361,7 @@ const testimonials = [
   },
 ];
 
-const Register = ({ closeRegisterModal, openloginModal }) => {
+const Register = ({ closeRegisterModal, openLoginModal }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -591,12 +591,16 @@ const Register = ({ closeRegisterModal, openloginModal }) => {
           </form>
           {/* <Link to="Login">  */}
           <button
-            type="button"
-            onClick={openloginModal}
-            className=" mt-4 w-full max-w-sm p-2  border border-gray-400 shadow-2xl rounded-lg focus:border-[#FF6D34] outline-none text-black-600 hover:border-orange-500"
-          >
-            Back to <span className="text-orange-500">Login</span>
-          </button>
+  type="button"
+  onClick={() => {
+    closeRegisterModal(); // Close Register Modal
+    openLoginModal(); // Open Login Modal
+  }}
+  className="mt-4 w-full max-w-sm p-2 border border-gray-400 shadow-2xl rounded-lg focus:border-[#FF6D34] outline-none text-black-600 hover:border-orange-500"
+>
+  Back to <span className="text-orange-500">Login</span>
+</button>
+
           {/* </Link> */}
         </div>
       </div>
