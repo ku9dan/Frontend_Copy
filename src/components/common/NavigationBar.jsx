@@ -168,9 +168,10 @@ const NavigationBar = ({ openLoginModal }) => {
         {/* Action Buttons */}
         <div className={styles.hideOnMobile}>
           <div className={styles.actionButtons}>
-            <button className={styles.loginBtn} onClick={openLoginModal}>
-              Login
-            </button>
+          <Link to="/login">
+  <button className={styles.loginBtn}>Login</button>
+</Link>
+
 
             {/* Corporate Dropdown */}
             <div

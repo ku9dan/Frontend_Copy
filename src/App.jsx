@@ -31,13 +31,13 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLoading(false);
-    }, 2000); // 3 seconds delay
+    }, 2000); // 2 seconds delay
 
     return () => clearTimeout(timer); // Cleanup timer
   }, []);
 
   return (
-    <Router>
+    <> {/* ✅ Wrap everything inside a React Fragment */}
       {showLoading ? (
         <LoadingAnimation />
       ) : (
@@ -48,15 +48,16 @@ function App() {
             <Route path="/job/*" element={<Jobs />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/blogs/:id" element={<BlogPost />} />
-            <Route path="/student dashboard/*" element={<StudentDashboard />} />
+            <Route path="/student-dashboard/*" element={<StudentDashboard />} />
             <Route path="/courses/*" element={<Courses />} />
             <Route path="/hrdashboard/*" element={<HRDashboard />} />
           </Routes>
         </Suspense>
       )}
-    </Router>
+    </>
   );
 }
+
 
 // Custom component to handle delay and lazy loading for Hackathon
 const HackathonWithDelay = () => {

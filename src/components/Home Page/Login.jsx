@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import { FiMail, FiLock } from 'lucide-react';
 
 const testimonials = [
   {
@@ -45,9 +44,9 @@ const Login = ({ openRegisterModal, closeLoginModal }) => {
       return;
     }
 
-    const openRegisterModal = () => {
-      navigate("/register"); // This will navigate to the register page
-    };
+    // const openRegisterModal = () => {
+    //   navigate("/register"); // This will navigate to the register page
+    // };
 
     try {
       const response = await axios.post(
@@ -66,15 +65,18 @@ const Login = ({ openRegisterModal, closeLoginModal }) => {
       setError(err.response?.data?.msg || "An error occurred");
     }
   };
+  const navigate = useNavigate(); // Inside your component
 
   return (
-    <div className="flex items-center justify-center  bg-transparent p-4">
-      <div className="flex flex-col sm:flex-row border border-black bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-3xl justify-center">
+    <div className="flex items-center justify-center bg-transparent p-4">
+      <div className="flex flex-col md:flex-row border border-black bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-3xl justify-center">
         {/* Left Panel */}
-        <div className="w-[400px] p-5 bg-[#03BCA5] text-white rounded-l-2xl flex flex-col">
-          {/* <div className="bg-white p-4 pt-2 rounded-3xl">
-          </div> */}
-          <img src="/UptoSkills.png" alt="UptoSkills" className="w-full" />
+        <div className="w-[400px] p-5 bg-[#03BCA5] text-white rounded-l-2xl flex flex-col items-center">
+          <img
+            src="/UptoSkills.png"
+            alt="UptoSkills"
+            className="bg-white w-[70%] rounded-full"
+          />
 
           <h2 className="text-2xl font-bold mt-8">
             Start your remarkable <br />
@@ -84,45 +86,13 @@ const Login = ({ openRegisterModal, closeLoginModal }) => {
             Step into a world where potential meets possibility welcome to
             UptoSkills, where your journey to mastery begins!
           </p>
-
-          {/* <div className="mt-16 relative">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`absolute w-full transform transition-all duration-500 ${
-                  index === currentIndex
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-full"
-                }`}
-              >
-                <div className="bg-white rounded-xl p-6 text-gray-800 shadow-lg">
-                  <p className="text-sm italic mb-2">{testimonial.text}</p>
-                  <span className="text-sm font-semibold">
-                    {testimonial.author}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div> */}
-
-          {/* <div className="flex justify-center gap-2 mt-32">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-[#FF6D34]" : "bg-gray-400"
-                }`}
-              />
-            ))}
-          </div> */}
         </div>
 
         {/* Right Panel */}
         <div className="w-full p-6 bg-white rounded-r-2xl flex flex-col items-center justify-center md:w-1/2">
           <div className="relavite">
             <button
-              onClick={closeLoginModal}
+              onClick={() => navigate("/")} // Redirects to home
               className="absolute -mt-7 ml-[160px] text-2xl hover:text-orange-500"
             >
               ×
@@ -211,16 +181,15 @@ const Login = ({ openRegisterModal, closeLoginModal }) => {
                 </button>
               </div>
             </form>
-            {/* <Link to="/Register"> */}
-            <button
-              type="button"
-              onClick={openRegisterModal}
-              className=" mt-4 w-full max-w-sm p-2  border border-gray-400 shadow-2xl rounded-lg focus:border-[#FF6D34] outline-none text-black-600 hover:border-orange-500"
-            >
-              Don't hvae an Account{" "}
-              <span className="text-orange-500">Sign Up</span>
-            </button>
-            {/* </Link> */}
+            <Link to="/register">
+              <button
+                type="button"
+                className=" mt-4 w-full max-w-sm p-2  border border-gray-400 shadow-2xl rounded-lg focus:border-[#FF6D34] outline-none text-black-600 hover:border-orange-500"
+              >
+                Don't have an Account{" "}
+                <span className="text-orange-500">Sign Up</span>
+              </button>
+            </Link>
 
             <div className="mt-4 ">
               <div className="flex items-center">
