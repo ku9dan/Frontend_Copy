@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate at the top
 const testimonials = [
   {
     text: "Realto's user-friendly interface made the process of relocating a breeze.",
-    author: "- Emily Smith",
+    author: "- Emily Smiths",
   },
   {
     text: "From start to finish, the registration process was seamless. Highly recommend!",
